@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - NS Lanka</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-body">
+
+  <div class="admin-wrapper">
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="admin-sidebar-header">
+        <a href="index.html" class="admin-logo">
+          <i class="fas fa-microchip"></i>
+          <span>NS <strong>Lanka</strong></span>
+        </a>
+      </div>
+      <nav class="admin-nav">
+        <a href="#dashboard" class="admin-nav-item active" data-section="dashboard">
+          <i class="fas fa-chart-pie"></i> <span>Dashboard</span>
+        </a>
+        <a href="#add-product" class="admin-nav-item" data-section="add-product">
+          <i class="fas fa-plus-circle"></i> <span>Add Product</span>
+        </a>
+        <a href="#products" class="admin-nav-item" data-section="products">
+          <i class="fas fa-boxes"></i> <span>Manage Products</span>
+        </a>
+        <a href="#orders" class="admin-nav-item" data-section="orders">
+          <i class="fas fa-truck"></i> <span>Manage Orders</span>
+        </a>
+        <a href="#hero" class="admin-nav-item" data-section="hero">
+          <i class="fas fa-images"></i> <span>Manage Hero</span>
+        </a>
+        <a href="#reviews" class="admin-nav-item" data-section="reviews">
+          <i class="fas fa-star"></i> <span>Manage Reviews</span>
+        </a>
+      </nav>
+      <div class="admin-sidebar-footer">
+        <a href="index.html" class="admin-nav-item"><i class="fas fa-arrow-left"></i> <span>Back to Site</span></a>
+        <a href="javascript:void(0)" onclick="adminLogout()" class="admin-nav-item" style="border-top:1px solid rgba(255,255,255,0.06);"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-topbar">
+        <button class="admin-menu-toggle" id="adminMenuToggle"><i class="fas fa-bars"></i></button>
+        <h2 class="admin-page-title" id="adminPageTitle">Dashboard</h2>
+        <div class="admin-topbar-right">
+          <span class="admin-topbar-user"><i class="fas fa-user-shield"></i> Admin</span>
+          <a href="javascript:void(0)" class="admin-topbar-exit" onclick="adminLogout()" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+      </header>
+
+      <div class="admin-content">
+
+        <!-- DASHBOARD -->
+        <section id="section-dashboard" class="admin-section active">
+          <div class="admin-stats-grid">
+            <div class="admin-stat-card">
+              <div class="admin-stat-icon" style="background:#E8F5E9;color:#2E7D32;"><i class="fas fa-box"></i></div>
+              <div><span class="admin-stat-value" id="statProducts">0</span><span class="admin-stat-label">Products</span></div>
+            </div>
+            <div class="admin-stat-card">
+              <div class="admin-stat-icon" style="background:#FFF3E0;color:#E65100;"><i class="fas fa-shopping-cart"></i></div>
+              <div><span class="admin-stat-value" id="statOrders">0</span><span class="admin-stat-label">Orders</span></div>
+            </div>
+            <div class="admin-stat-card">
+              <div class="admin-stat-icon" style="background:#E3F2FD;color:#1565C0;"><i class="fas fa-star"></i></div>
+              <div><span class="admin-stat-value" id="statReviews">0</span><span class="admin-stat-label">Reviews</span></div>
+            </div>
+            <div class="admin-stat-card">
+              <div class="admin-stat-icon" style="background:#FCE4EC;color:#C62828;"><i class="fas fa-images"></i></div>
+              <div><span class="admin-stat-value" id="statHero">0</span><span class="admin-stat-label">Hero Slides</span></div>
+            </div>
+          </div>
+          <div class="admin-quick-links">
+            <a href="#add-product" class="admin-quick-link"><i class="fas fa-plus-circle"></i> Add New Product</a>
+            <a href="#products" class="admin-quick-link"><i class="fas fa-boxes"></i> View All Products</a>
+            <a href="#orders" class="admin-quick-link"><i class="fas fa-truck"></i> View Orders</a>
+            <a href="#hero" class="admin-quick-link"><i class="fas fa-images"></i> Manage Hero</a>
+            <a href="#reviews" class="admin-quick-link"><i class="fas fa-star"></i> Manage Reviews</a>
+          </div>
+        </section>
+
+        <!-- ADD PRODUCT -->
+        <section id="section-add-product" class="admin-section">
+          <div class="admin-card">
+            <h3><i class="fas fa-plus-circle"></i> Add New Product</h3>
+            <form id="adminAddProductForm" class="admin-form">
+              <div class="admin-form-row">
+                <div class="form-group">
+                  <label>Product Title *</label>
+                  <input type="text" id="apTitle" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label>Category</label>
+                  <select id="apCategory" class="form-control">
+                    <option value="cat_blender">Blender parts</option>
+                    <option value="cat_rice_cooker">Rice cooker spare parts</option>
+                    <option value="cat_kettle">Electric kettle spare parts</option>
+                    <option value="cat_pressure_cooker">Pressure cooker spare parts</option>
+                    <option value="cat_fan">Fan spare parts</option>
+                    <option value="cat_gas_cooker">Gas cooker spare parts</option>
+                    <option value="cat_oven">Oven spare parts</option>
+                    <option value="cat_washing_machine">Washing machine spare parts</option>
+                    <option value="cat_refrigerator">Refrigerator spare parts</option>
+                    <option value="cat_air_conditioner">Air conditioner spare parts</option>
+                    <option value="cat_water_pump">Water pump spare parts</option>
+                    <option value="cat_power_tools">Power tools spare parts</option>
+                    <option value="cat_capacitor">Motor capacitor</option>
+                    <option value="cat_gadgets">Electrical gadgets</option>
+                    <option value="cat_power_supplies">AC DC power supplies</option>
+                    <option value="cat_av_connectors">Audio video connectors</option>
+                    <option value="cat_av_cables">Audio video cables</option>
+                    <option value="cat_wall_brackets">LCD/LED wall brackets</option>
+                    <option value="cat_soldering">Soldering Accessories</option>
+                    <option value="cat_microphones">Microphones</option>
+                  </select>
+                </div>
+              </div>
+              <div class="admin-form-row">
+                <div class="form-group">
+                  <label>Price (LKR) *</label>
+                  <input type="number" id="apPrice" class="form-control" required min="0">
+                </div>
+                <div class="form-group">
+                  <label>Old Price (optional)</label>
+                  <input type="number" id="apOldPrice" class="form-control" min="0">
+                </div>
+              </div>
+              <div class="admin-form-row">
+                <div class="form-group">
+                  <label>Badge Text</label>
+                  <input type="text" id="apBadgeText" class="form-control" placeholder="NEW, BEST SELLER, etc.">
+                </div>
+                <div class="form-group">
+                  <label>Stock Quantity</label>
+                  <input type="number" id="apStockQty" class="form-control" min="0" value="1">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Product Image</label>
+                <input type="file" id="apImage" class="form-control" accept="image/*">
+                <div id="apImagePreview" class="admin-image-preview"></div>
+              </div>
+              <button type="submit" class="btn-primary"><i class="fas fa-save"></i> Save Product</button>
+            </form>
+          </div>
+        </section>
+
+        <!-- MANAGE PRODUCTS -->
+        <section id="section-products" class="admin-section">
+          <div class="admin-card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+              <h3><i class="fas fa-boxes"></i> All Products</h3>
+              <a href="#add-product" class="btn-primary" style="padding:8px 16px;font-size:0.85rem;"><i class="fas fa-plus"></i> Add New</a>
+            </div>
+            <div class="admin-table-wrap">
+              <table class="admin-table">
+                <thead><tr><th>ID</th><th>Title</th><th>Category</th><th>Price</th><th>Stock</th><th>Actions</th></tr></thead>
+                <tbody id="adminProductsTbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- MANAGE ORDERS -->
+        <section id="section-orders" class="admin-section">
+          <div class="admin-card">
+            <h3><i class="fas fa-truck"></i> Orders</h3>
+            <div class="admin-table-wrap">
+              <table class="admin-table">
+                <thead><tr><th>#</th><th>Customer</th><th>Items</th><th>Total</th><th>Payment</th><th>Status</th><th>Actions</th></tr></thead>
+                <tbody id="adminOrdersTbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- MANAGE HERO -->
+        <section id="section-hero" class="admin-section">
+          <div class="admin-card">
+            <h3><i class="fas fa-images"></i> Hero Slides</h3>
+            <p style="color:#64748B;margin-bottom:16px;">Manage the hero banner slides shown on the home page. Changes save to localStorage.</p>
+            <form id="adminHeroForm">
+              <div id="heroSlidesContainer"></div>
+              <button type="button" class="btn-primary" style="margin-top:12px;" onclick="addHeroSlide()"><i class="fas fa-plus"></i> Add Slide</button>
+              <button type="submit" class="btn-primary" style="margin-top:12px;margin-left:8px;background:var(--primary-blue);"><i class="fas fa-save"></i> Save All Slides</button>
+            </form>
+          </div>
+        </section>
+
+        <!-- MANAGE REVIEWS -->
+        <section id="section-reviews" class="admin-section">
+          <div class="admin-card">
+            <h3><i class="fas fa-star"></i> Customer Reviews</h3>
+            <div class="admin-table-wrap">
+              <table class="admin-table">
+                <thead><tr><th>#</th><th>Product</th><th>Customer</th><th>Rating</th><th>Review</th><th>Status</th><th>Actions</th></tr></thead>
+                <tbody id="adminReviewsTbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Edit Product Modal -->
+      <div id="editProductModal" class="admin-modal-backdrop">
+        <div class="admin-modal">
+          <div class="admin-modal-header">
+            <h3><i class="fas fa-edit"></i> Edit Product</h3>
+            <button type="button" class="admin-modal-close" onclick="closeEditModal()">&times;</button>
+          </div>
+          <form id="editProductForm" class="admin-form">
+            <input type="hidden" id="epId">
+            <div class="admin-form-row">
+              <div class="form-group">
+                <label>Product Title *</label>
+                <input type="text" id="epTitle" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label>Category</label>
+                <select id="epCategory" class="form-control">
+                  <option value="cat_blender">Blender parts</option>
+                  <option value="cat_rice_cooker">Rice cooker spare parts</option>
+                  <option value="cat_kettle">Electric kettle spare parts</option>
+                  <option value="cat_pressure_cooker">Pressure cooker spare parts</option>
+                  <option value="cat_fan">Fan spare parts</option>
+                  <option value="cat_gas_cooker">Gas cooker spare parts</option>
+                  <option value="cat_oven">Oven spare parts</option>
+                  <option value="cat_washing_machine">Washing machine spare parts</option>
+                  <option value="cat_refrigerator">Refrigerator spare parts</option>
+                  <option value="cat_air_conditioner">Air conditioner spare parts</option>
+                  <option value="cat_water_pump">Water pump spare parts</option>
+                  <option value="cat_power_tools">Power tools spare parts</option>
+                  <option value="cat_capacitor">Motor capacitor</option>
+                  <option value="cat_gadgets">Electrical gadgets</option>
+                  <option value="cat_power_supplies">AC DC power supplies</option>
+                  <option value="cat_av_connectors">Audio video connectors</option>
+                  <option value="cat_av_cables">Audio video cables</option>
+                  <option value="cat_wall_brackets">LCD/LED wall brackets</option>
+                  <option value="cat_soldering">Soldering Accessories</option>
+                  <option value="cat_microphones">Microphones</option>
+                </select>
+              </div>
+            </div>
+            <div class="admin-form-row">
+              <div class="form-group">
+                <label>Price (LKR) *</label>
+                <input type="number" id="epPrice" class="form-control" required min="0">
+              </div>
+              <div class="form-group">
+                <label>Old Price (optional)</label>
+                <input type="number" id="epOldPrice" class="form-control" min="0">
+              </div>
+            </div>
+            <div class="admin-form-row">
+              <div class="form-group">
+                <label>Badge Text</label>
+                <input type="text" id="epBadgeText" class="form-control" placeholder="NEW, BEST SELLER, etc.">
+              </div>
+              <div class="form-group">
+                <label>Stock Quantity</label>
+                <input type="number" id="epStockQty" class="form-control" min="0" value="1">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Product Image</label>
+              <input type="file" id="epImage" class="form-control" accept="image/*">
+              <div id="epImagePreview" class="admin-image-preview"></div>
+            </div>
+            <div class="admin-modal-actions">
+              <button type="button" class="btn-primary" style="background:#64748B;" onclick="closeEditModal()">Cancel</button>
+              <button type="submit" class="btn-primary"><i class="fas fa-save"></i> Update Product</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

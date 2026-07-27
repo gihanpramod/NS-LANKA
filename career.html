@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers - NS Lanka Electronic Spare Parts</title>
+  <meta name="description" content="Join the NS Lanka team. View current job openings for electronic technicians and logistics officers in Sri Lanka.">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="header-container">
+      <div class="top-bar-info">
+        <span><i class="fas fa-phone-alt"></i> <strong data-i18n="hotline">Hotline: +94 11 234 5678 / +94 77 123 4567 / +94 72 426 7905</strong></span>
+        <span><i class="fas fa-truck-fast"></i> <span data-i18n="delivery_note">Island-wide Fast Delivery Across Sri Lanka</span></span>
+      </div>
+      <div class="lang-selector">
+        <span style="font-size:0.78rem; font-weight:600; color:#94A3B8; margin-right:4px;">Language:</span>
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ta">தமிழ்</button>
+        <button class="lang-btn" data-lang="si">සිංහල</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="main-header">
+    <div class="header-container">
+      <div class="header-top-row">
+        
+        <a href="index.html" class="brand-logo-wrap">
+          <img src="Images/Logo/Logo.png" alt="NS Lanka Electronics Logo" class="brand-logo-img">
+          <div class="brand-title-group">
+            <h1>NS <span>Lanka</span></h1>
+            <div class="brand-tagline">Electronic Spare Parts & Tools</div>
+          </div>
+        </a>
+
+        <div class="header-search-container">
+          <div class="search-box-wrapper">
+            <input type="text" id="headerSearchInput" class="search-input" placeholder="Search spare parts (e.g. Blender blade, Capacitor, Heating element)..." data-i18n-placeholder="search_placeholder">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+          </div>
+          <div id="searchResultsDropdown" class="search-results-dropdown"></div>
+        </div>
+
+        <div class="header-social-icons">
+          <a href="https://facebook.com" target="_blank" class="header-social-btn fb" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://whatsapp.com" target="_blank" class="header-social-btn wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://instagram.com" target="_blank" class="header-social-btn ig" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://youtube.com" target="_blank" class="header-social-btn yt" title="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+
+        <div class="header-actions">
+          <a href="login.html" class="user-login-btn">
+            <i class="fas fa-user"></i> <span data-i18n="user_login">User Login</span>
+          </a>
+          <button id="adminLoginBtn" class="admin-login-btn">
+            <i class="fas fa-user-shield"></i> <span data-i18n="admin_login">Admin Login</span>
+          </button>
+          <button id="headerCartBtn" class="cart-icon-btn">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cartBadge" class="cart-badge">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-category-bar">
+      <div class="header-container">
+        <div class="nav-row">
+
+          <div class="category-dropdown-wrapper">
+            <button class="category-toggle-btn">
+              <span><i class="fas fa-bars-staggered" style="margin-right:10px;"></i> <span data-i18n="all_categories">All Categories</span></span>
+              <i class="fas fa-chevron-down arrow"></i>
+            </button>
+
+            <ul class="category-menu-list">
+              <li class="category-menu-item"><a href="#" class="category-menu-link" onclick="filterCategory('cat_blender')"><span><i class="fas fa-blender"></i> <span data-i18n="cat_blender">Blender parts</span></span> <i class="fas fa-angle-right"></i></a></li>
+              <li class="category-menu-item"><a href="#" class="category-menu-link" onclick="filterCategory('cat_rice_cooker')"><span><i class="fas fa-bowl-rice"></i> <span data-i18n="cat_rice_cooker">Rice cooker spare parts</span></span> <i class="fas fa-angle-right"></i></a></li>
+              <li class="category-menu-item"><a href="#" class="category-menu-link" onclick="filterCategory('cat_kettle')"><span><i class="fas fa-mug-hot"></i> <span data-i18n="cat_kettle">Electric kettle spare parts</span></span> <i class="fas fa-angle-right"></i></a></li>
+              <li class="category-menu-item"><a href="#" class="category-menu-link" onclick="filterCategory('cat_pressure_cooker')"><span><i class="fas fa-temperature-arrow-up"></i> <span data-i18n="cat_pressure_cooker">Pressure cooker spare parts</span></span> <i class="fas fa-angle-right"></i></a></li>
+              <li class="category-menu-item"><a href="#" class="category-menu-link" onclick="filterCategory('cat_fan')"><span><i class="fas fa-fan"></i> <span data-i18n="cat_fan">Fan spare parts</span></span> <i class="fas fa-angle-right"></i></a></li>
+              <li class="category-menu-item"><a href="#" class="category-menu-link" onclick="filterCategory('cat_gas_cooker')"><span><i class="fas fa-fire-burner"></i> <span data-i18n="cat_gas_cooker">Gas cooker spare parts</span></span> <i class="fas fa-angle-right"></i></a></li>
+              <li class="category-menu-item"><a href="#" class="category-menu-link" onclick="filterCategory('cat_oven')"><span><i class="fas fa-microchip"></i> <span data-i18n="cat_oven">Oven spare parts</span></span> <i class="fas fa-angle-right"></i></a></li>
+              <li class="category-menu-item"><a href="#" class="category-menu-link" onclick="filterCategory('cat_washing_machine')"><span><i class="fas fa-soap"></i> <span data-i18n="cat_washing_machine">Washing machine spare parts</span></span> <i class="fas fa-angle-right"></i></a></li>
+              <li class="category-menu-item"><a href="#" class="category-menu-link" onclick="filterCategory('cat_refrigerator')"><span><i class="fas fa-snowflake"></i> <span data-i18n="cat_refrigerator">Refrigerator spare parts</span></span> <i class="fas fa-angle-right"></i></a></li>
+              <li class="category-menu-item"><a href="#" class="category-menu-link" onclick="filterCategory('cat_air_conditioner')"><span><i class="fas fa-wind"></i> <span data-i18n="cat_air_conditioner">Air conditioner spare parts</span></span> <i class="fas fa-angle-right"></i></a></li>
+              <li class="category-menu-item"><a href="#" class="category-menu-link" onclick="filterCategory('cat_water_pump')"><span><i class="fas fa-faucet-drip"></i> <span data-i18n="cat_water_pump">Water pump spare parts</span></span> <i class="fas fa-angle-right"></i></a></li>
+              <li class="category-menu-item"><a href="#" class="category-menu-link" onclick="filterCategory('cat_power_tools')"><span><i class="fas fa-screwdriver-wrench"></i> <span data-i18n="cat_power_tools">Power tools spare parts</span></span> <i class="fas fa-angle-right"></i></a></li>
+              <li class="category-menu-item"><a href="#" class="category-menu-link" onclick="filterCategory('cat_capacitor')"><span><i class="fas fa-charging-station"></i> <span data-i18n="cat_capacitor">Motor capacitor</span></span> <i class="fas fa-angle-right"></i></a></li>
+              <li class="category-menu-item"><a href="#" class="category-menu-link" onclick="filterCategory('cat_gadgets')"><span><i class="fas fa-plug"></i> <span data-i18n="cat_gadgets">Electrical gadgets</span></span> <i class="fas fa-angle-right"></i></a></li>
+              <li class="category-menu-item"><a href="#" class="category-menu-link" onclick="filterCategory('cat_power_supplies')"><span><i class="fas fa-car-battery"></i> <span data-i18n="cat_power_supplies">AC DC power supplies</span></span> <i class="fas fa-angle-right"></i></a></li>
+              <li class="category-menu-item"><a href="#" class="category-menu-link" onclick="filterCategory('cat_av_connectors')"><span><i class="fas fa-sliders"></i> <span data-i18n="cat_av_connectors">Audio video connectors</span></span> <i class="fas fa-angle-right"></i></a></li>
+              <li class="category-menu-item"><a href="#" class="category-menu-link" onclick="filterCategory('cat_av_cables')"><span><i class="fas fa-network-wired"></i> <span data-i18n="cat_av_cables">Audio video cables</span></span> <i class="fas fa-angle-right"></i></a></li>
+              <li class="category-menu-item"><a href="#" class="category-menu-link" onclick="filterCategory('cat_wall_brackets')"><span><i class="fas fa-tv"></i> <span data-i18n="cat_wall_brackets">LCD/LED wall brackets</span></span> <i class="fas fa-angle-right"></i></a></li>
+              <li class="category-menu-item"><a href="#" class="category-menu-link" onclick="filterCategory('cat_soldering')"><span><i class="fas fa-fire"></i> <span data-i18n="cat_soldering">Soldering Accessories</span></span> <i class="fas fa-angle-right"></i></a></li>
+              <li class="category-menu-item"><a href="#" class="category-menu-link" onclick="filterCategory('cat_microphones')"><span><i class="fas fa-microphone"></i> <span data-i18n="cat_microphones">Microphones</span></span> <i class="fas fa-angle-right"></i></a></li>
+            </ul>
+          </div>
+
+          <!-- MAIN NAVIGATION TABS -->
+          <nav class="nav-tabs-wrapper">
+            <ul class="nav-tabs-list">
+              <li class="nav-tab-item"><a href="index.html" class="nav-tab-link"><i class="fas fa-home"></i> <span data-i18n="tab_home">Home</span></a></li>
+              <li class="nav-tab-item"><a href="product.html" class="nav-tab-link"><i class="fas fa-box-open"></i> <span data-i18n="tab_product">Product</span></a></li>
+              <li class="nav-tab-item"><a href="about.html" class="nav-tab-link"><i class="fas fa-circle-info"></i> <span data-i18n="tab_about">About</span></a></li>
+              <li class="nav-tab-item"><a href="career.html" class="nav-tab-link"><i class="fas fa-briefcase"></i> <span data-i18n="tab_career">Career</span></a></li>
+              <li class="nav-tab-item"><a href="gallery.html" class="nav-tab-link"><i class="fas fa-images"></i> <span data-i18n="tab_gallery">Gallery</span></a></li>
+              <li class="nav-tab-item"><a href="social.html" class="nav-tab-link"><i class="fas fa-share-nodes"></i> <span data-i18n="tab_social">Social Media</span></a></li>
+              <li class="nav-tab-item"><a href="contact.html" class="nav-tab-link"><i class="fas fa-envelope"></i> <span data-i18n="tab_contact">Contact Us</span></a></li>
+              <li class="nav-tab-item"><a href="track.html" class="nav-tab-link"><i class="fas fa-location-dot"></i> <span data-i18n="tab_track">Track order</span></a></li>
+              <li class="nav-tab-item"><a href="faq.html" class="nav-tab-link"><i class="fas fa-circle-question"></i> <span data-i18n="tab_faq">FAQ</span></a></li>
+              <li class="nav-tab-item"><a href="review.html" class="nav-tab-link"><i class="fas fa-star"></i> <span data-i18n="tab_review">Review</span></a></li>
+            
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main id="mainContainer">
+
+    <div class="page-header-banner">
+      <div class="container">
+        <h2>Join Our Team - Careers at NS Lanka</h2>
+        <div class="breadcrumb"><a href="index.html">Home</a> / <span>Career</span></div>
+      </div>
+    </div>
+
+    <section class="section-padding">
+      <div class="container">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:24px;">
+          <div class="form-card">
+            <span style="color:#CE1A1B; font-weight:700; font-size:0.8rem;">FULL TIME • COLOMBO</span>
+            <h3 style="margin:8px 0;">Senior Electronic Technician</h3>
+            <p style="color:#64748B; font-size:0.88rem; margin-bottom:15px;">Seeking experienced technician for PCB testing, motor coil diagnostic, and spare parts verification.</p>
+            <button class="btn-primary" onclick="showToast('Application opened! Contact careers@nslanka.lk');">Apply Now</button>
+          </div>
+          <div class="form-card">
+            <span style="color:#0084C7; font-weight:700; font-size:0.8rem;">FULL TIME • KANDY</span>
+            <h3 style="margin:8px 0;">Inventory & Logistics Officer</h3>
+            <p style="color:#64748B; font-size:0.88rem; margin-bottom:15px;">Manage spare parts warehouse stock, island-wide courier dispatching, and stock taking.</p>
+            <button class="btn-primary" onclick="showToast('Application opened! Contact careers@nslanka.lk');">Apply Now</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <!-- SHOPPING CART DRAWER -->
+  <div id="cartDrawer" class="cart-drawer">
+    <div class="cart-header">
+      <h3><i class="fas fa-shopping-bag"></i> Your Shopping Cart</h3>
+      <button id="closeCartBtn" class="modal-close-btn"><i class="fas fa-xmark"></i></button>
+    </div>
+    <div id="cartItemsList" class="cart-items-list"></div>
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span>Total (LKR):</span>
+        <span id="cartTotalAmount">Rs. 0</span>
+      </div>
+      <button class="btn-primary" style="width:100%; text-align:center;" onclick="checkoutCart()">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <!-- ADMIN LOGIN MODAL -->
+  <div id="adminModal" class="modal-backdrop">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3><i class="fas fa-lock"></i> NS Lanka Admin Portal</h3>
+        <button id="closeAdminModal" class="modal-close-btn"><i class="fas fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <form id="adminLoginForm">
+          <div class="form-group">
+            <label>Admin Username</label>
+            <input type="text" class="form-control" value="admin" required>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" value="password" required>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;">Sign In to Dashboard</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK VIEW PRODUCT MODAL -->
+  <div id="quickViewModal" class="modal-backdrop">
+    <div class="modal-box" style="max-width:650px;">
+      <div class="modal-header">
+        <h3>Product Details</h3>
+        <button class="modal-close-btn" onclick="closeQuickView()"><i class="fas fa-xmark"></i></button>
+      </div>
+      <div id="quickViewContent" class="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- TOAST CONTAINER -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3 style="color:#FFF;">NS Lanka Electronics</h3>
+          <p style="font-size:0.88rem; line-height:1.6; margin-bottom:15px;">Sri Lanka's most trusted online and wholesale provider of electronic equipment spare parts, blender motors, washing machine parts, and capacitors.</p>
+          <div style="display:flex; gap:12px; font-size:1.2rem; color:#FFF;">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Spare Part Categories</h3>
+          <ul class="footer-links">
+            <li><a href="#">Blender Spare Parts</a></li>
+            <li><a href="#">Rice Cooker Heating Elements</a></li>
+            <li><a href="#">Pressure Cooker Safety Valves</a></li>
+            <li><a href="#">Washing Machine Motors & Belts</a></li>
+            <li><a href="#">Motor Capacitors</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#" onclick="switchTab('about')">About Company</a></li>
+            <li><a href="#" onclick="switchTab('wholesale')">B2B Wholesale Portal</a></li>
+            <li><a href="#" onclick="switchTab('track')">Track Order Courier</a></li>
+            <li><a href="#" onclick="switchTab('faq')">FAQ & Help Center</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact Us</h3>
+          <p style="font-size:0.88rem; line-height:1.6; margin-bottom:8px;">Pettah Electronic Market, Colombo 11</p>
+          <p style="font-size:0.88rem; color:#CE1A1B; font-weight:700;">+94 11 234 5678 / +94 77 123 4567 / +94 72 426 7905</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 NS Lanka Electronics (Pvt) Ltd. All Rights Reserved. Designed in Sri Lanka.</div>
+        <div class="payment-badges">
+          <span class="payment-badge">Cash on Delivery</span>
+          <span class="payment-badge">Koko Pay</span>
+          <span class="payment-badge">Mintpay</span>
+          <span class="payment-badge">Bank Transfer</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+<script src="script.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login - NS Lanka</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-login-body">
+
+  <div class="admin-login-container">
+    <div class="admin-login-card">
+      <div class="admin-login-header">
+        <a href="index.html" class="admin-login-logo">
+          <i class="fas fa-microchip"></i>
+          <span>NS <strong>Lanka</strong></span>
+        </a>
+        <p>Admin Control Panel</p>
+      </div>
+      <form id="adminLoginForm" class="admin-login-form">
+        <div class="form-group">
+          <label for="loginUsername"><i class="fas fa-user"></i> Username</label>
+          <input type="text" id="loginUsername" class="form-control" placeholder="Enter username" required autocomplete="username">
+        </div>
+        <div class="form-group">
+          <label for="loginPassword"><i class="fas fa-lock"></i> Password</label>
+          <input type="password" id="loginPassword" class="form-control" placeholder="Enter password" required autocomplete="current-password">
+        </div>
+        <div id="loginError" class="admin-login-error"></div>
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;padding:14px;font-size:1rem;">
+          <i class="fas fa-shield-alt"></i> Sign In
+        </button>
+      </form>
+      <div class="admin-login-footer">
+        <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
